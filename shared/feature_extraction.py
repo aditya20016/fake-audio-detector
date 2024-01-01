@@ -18,8 +18,8 @@ SPECTRUM_FEATURES_FUNCTIONS = [mfcc, imfcc, bfcc, lfcc, lpc, lpcc, msrcc, ngcc, 
 
 def extract_sp_feats(file_path: str, dtype: str = "float64") -> dict:
     sig, fs = sf.read(file_path, dtype=dtype)
-    sp_feats = extract_feats(sig=sig, fs=fs)
-    print("sp_feats:", sp_feats)
+    sp_feats: dict = extract_feats(sig=sig, fs=fs)
+    print("sp_feats:", sp_feats.keys())
 
     # apply mean to arrays
     for sp_feat_name in SP_FEATS_NAMES:
