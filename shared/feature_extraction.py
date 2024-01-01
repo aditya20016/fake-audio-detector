@@ -23,6 +23,8 @@ def extract_sp_feats(file_path: str, dtype: str = "float64") -> dict:
 
     # apply mean to arrays
     for sp_feat_name in SP_FEATS_NAMES:
+        if sp_feats.get(sp_feat_name) is None:
+            continue
         sp_feat_type = type(sp_feats[sp_feat_name])
         if sp_feat_type == tuple or sp_feat_type == np.ndarray or sp_feat_type == list:
             sp_feats[sp_feat_name] = np.array(sp_feats[sp_feat_name])
