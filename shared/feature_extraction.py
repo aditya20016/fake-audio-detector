@@ -48,6 +48,7 @@ def extract_spectrum_data(sample: str) -> dict:
     spectrum_dict = {}
     spectrum_dict["signal"] = sig.mean()
     for idx in range(len(SPECTRUM_FEATURES)):
+        print("Index", idx, SPECTRUM_FEATURES_FUNCTIONS[idx])
         feature = SPECTRUM_FEATURES_FUNCTIONS[idx](sig=sig, fs=fs)
         spectrum_dict[SPECTRUM_FEATURES[idx]] = feature.mean()
 
