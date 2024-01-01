@@ -44,6 +44,7 @@ def extract_media_info(file_path: str, selected_features: list[str] = ['bit_rate
 
 def extract_spectrum_data(sample: str) -> dict:
     sig, fs = sf.read(sample, dtype="float64")
+    print("sig", sig, "fs", fs, ";")
 
     spectrum_dict = {}
     spectrum_dict["signal"] = sig.mean()
