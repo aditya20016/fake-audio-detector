@@ -50,6 +50,8 @@ def extract_spectrum_data(sample: str) -> dict:
     for idx in range(len(SPECTRUM_FEATURES)):
         print("Index", idx, SPECTRUM_FEATURES_FUNCTIONS[idx])
         feature = SPECTRUM_FEATURES_FUNCTIONS[idx](sig=sig, fs=fs)
+        if isinstance(feature, tuple):
+            feature = feature[0]
         spectrum_dict[SPECTRUM_FEATURES[idx]] = feature.mean()
 
     return spectrum_dict
